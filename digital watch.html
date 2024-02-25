@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            background-image: url("https://images.unsplash.com/photo-1560863185-a4f6199b5768?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlnaXRhbCUyMHdhdGNofGVufDB8fDB8fHww");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: 100% 100%;
+        }
+        .main>div {
+            width: 16vw;
+            height: 50px;
+            position: absolute;
+        }
+        h1 {
+            position: absolute;
+            color: white;
+            top: 8px;
+            text-shadow: 0px 0px 5px red;
+            left: 15px;
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <h1></h1>
+        </div>
+    </div>
+    <script>
+        let inp = document.querySelector("h1")
+
+        function watch() {
+            let date = new Date()
+            let hours = date.getHours()
+            let min = date.getMinutes()
+            let sec = date.getSeconds()
+            let am;
+            let pm;
+            // console.log(hours,min,sec)
+            inp.innerText = `${hours}:${min}:${sec}`
+            if (hours >= 12) {
+                inp.innerText = `${value(hours)}:${value(min)}:${value(sec)}:PM`
+            }
+            else {
+                inp.innerText = `${value(hours)}:${value(min)}:${value(sec)}:AM`
+            }
+        }
+        var value = (x) => {
+            if (x < 10) {
+                return `0${x}`
+            }
+            else {
+                return `${x}`
+            }
+
+        }
+        setInterval(watch, 1000)
+        watch()
+    </script>
+</body>
+
+</html>
